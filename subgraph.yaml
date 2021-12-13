@@ -1,0 +1,38 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Contract
+    network: ropsten
+    source:
+      address: "0xAD59cFD750D7e71C6e9Ee8c05577704701c181fE"
+      abi: Contract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AddedToWhitelist
+        - LoanCreated
+        - LoanIncreased
+        - OwnershipTransferred
+        - RemovedFromWhitelist
+        - Repayment
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: AddedToWhitelist(indexed address)
+          handler: handleAddedToWhitelist
+        - event: LoanCreated(indexed uint256,address[])
+          handler: handleLoanCreated
+        - event: LoanIncreased(indexed uint256,uint256)
+          handler: handleLoanIncreased
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RemovedFromWhitelist(indexed address)
+          handler: handleRemovedFromWhitelist
+        - event: Repayment(indexed uint256,uint256,address)
+          handler: handleRepayment
+      file: ./src/mapping.ts
