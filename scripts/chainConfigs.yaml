@@ -1,0 +1,8 @@
+networks:
+  - name: ropsten
+    contractAddress: "0xAD59cFD750D7e71C6e9Ee8c05577704701c181fE"
+    startBlock: 11613106
+
+  - name: kovan
+    contractAddress: "0x92e978b6CE9c2c9702093B1E91A709e50dF2f0E8"
+    startBlock: 28759923

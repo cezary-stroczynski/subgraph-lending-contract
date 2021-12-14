@@ -6,8 +6,9 @@ dataSources:
     name: Contract
     network: ropsten
     source:
-      address: "0xAD59cFD750D7e71C6e9Ee8c05577704701c181fE"
+      address: "0x0000000000000000000000000000000000000000"
       abi: Contract
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -16,7 +17,6 @@ dataSources:
         - AddedToWhitelist
         - LoanCreated
         - LoanIncreased
-        - OwnershipTransferred
         - RemovedFromWhitelist
         - Repayment
       abis:
@@ -29,8 +29,6 @@ dataSources:
           handler: handleLoanCreated
         - event: LoanIncreased(indexed uint256,uint256)
           handler: handleLoanIncreased
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: RemovedFromWhitelist(indexed address)
           handler: handleRemovedFromWhitelist
         - event: Repayment(indexed uint256,uint256,address)

@@ -1,16 +1,23 @@
 {
-  "name": "test-ropsten",
+  "name": "ropstendev",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
+    "load-config:kovan": "NETWORK=kovan ts-node scripts/loadChainConfig.ts",
+    "load-config:ropsten": "NETWORK=ropsten ts-node scripts/loadChainConfig.ts",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ cezary-stroczynski/test-ropsten",
-    "create-local": "graph create --node http://localhost:8020/ cezary-stroczynski/test-ropsten",
-    "remove-local": "graph remove --node http://localhost:8020/ cezary-stroczynski/test-ropsten",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 cezary-stroczynski/test-ropsten"
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ cezary-stroczynski/Ropstendev",
+    "create-local": "graph create --node http://localhost:8020/ cezary-stroczynski/Ropstendev",
+    "remove-local": "graph remove --node http://localhost:8020/ cezary-stroczynski/Ropstendev",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 cezary-stroczynski/Ropstendev"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.22.1",
-    "@graphprotocol/graph-ts": "0.22.1"
+    "@graphprotocol/graph-ts": "0.22.1",
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^16.11.12",
+    "js-yaml": "^4.1.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   }
 }
