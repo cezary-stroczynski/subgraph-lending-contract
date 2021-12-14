@@ -1,5 +1,22 @@
-type ExampleEntity @entity {
+type Loan @entity {
   id: ID!
-  count: BigInt!
-  account: Bytes! # address
+  agreements: [Bytes!]!
+  repayments: [Repayment!]!
+  loanIncreasings: [LoanIncreased!]!
+}
+
+type Repayment @entity {
+  id: ID!
+  amount: Int!
+  agreement: Bytes!
+}
+
+type LoanIncreased @entity {
+  id: ID!
+  amount: Int!
+}
+
+type Whitelist @entity {
+  id: ID!
+  members: [Bytes!]!
 }
